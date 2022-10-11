@@ -13,7 +13,7 @@ gen64() {
 }
 install_3proxy() {
     echo "installing 3proxy"
-    URL="https://raw.githubusercontent.com/quayvlog/quayvlog/main/3proxy-3proxy-0.8.6.tar.gz"
+    URL="https://raw.githubusercontent.com/minhchau91/ipv6_proxy_3000/blob/main/3proxy-3proxy-0.8.6.tar.gz"
     wget -qO- $URL | bsdtar -xvf-
     cd 3proxy-3proxy-0.8.6
     make -f Makefile.Linux
@@ -54,7 +54,7 @@ EOF
 upload_proxy() {
     local PASS=$(random)
     zip --password $PASS proxy.zip proxy.txt
-    URL=$(curl -s --upload-file proxy.zip https://transfer.sh/proxy.zip)
+    URL=$(curl -F "file=@proxy.zip" https://file.io)
 
     echo "Proxy is ready! Format IP:PORT:LOGIN:PASS"
     echo "Download zip archive from: ${URL}"
